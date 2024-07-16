@@ -30,3 +30,10 @@ def add_driver():
       break     
   driver = Driver(name.lower(), startCity.lower())
   driversList.append(driver)
+
+def view_all_drivers():
+  for i in range(len(driversList)):
+    
+    driver = driversList[i]
+    print(driver.workerId+',', driver.name.title()+',', driver.startCity.capitalize())
+
