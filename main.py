@@ -53,5 +53,27 @@ def drivers_menu():
    else:
       print('invalid input')
       drivers_menu()
+      
+def cities_menu():
+   print('1. Show cities')
+   print('2. Print neighboring cities')
+   print('3. Print Drivers delivering to city')
 
-drivers_menu()
+def sys_execution():
+   print('Hello! Please enter:')
+   print('1. To go to the drivers menu')
+   print('2. To go to the cities menu')
+   print('3. To exit the system')
+
+   answer=input()
+   if answer=='1':
+      drivers_menu()
+   elif answer=='2':
+      cities_menu()
+   elif answer=='3':
+      print('system shutting down')
+   else:
+      print('invalid input')
+      sys_execution()
+
+sys_execution()
