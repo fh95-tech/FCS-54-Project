@@ -38,5 +38,20 @@ def view_all_drivers():
     driver = drivers_list[i]
     print(driver.worker_id + ',' , driver.name.title() + ',' , driver.start_city.capitalize())
 
-add_driver()
-view_all_drivers()
+def drivers_menu():
+   print('1. To view all the drivers')
+   print('2. To add a driver')
+   print('3. To go back to main menu')
+
+   user_input=input()
+   if user_input=='1':
+      view_all_drivers()
+   elif user_input=='2':
+      add_driver()
+  #  elif user_input=='3':
+  #     sys_execution()
+   else:
+      print('invalid input')
+      drivers_menu()
+
+drivers_menu()
