@@ -15,28 +15,36 @@ drivers_list = [Driver('max verstappen', 'akkar'),
 def add_driver():
   name = input("Enter the driver's name: ")
   while True:
-    start_city= input("Enter the driver's start city: ")
-    if start_city not in cities:
-      answer=input('The city is not available in the database,would you like to add it?(y/n) ')
-      if answer=='y':
-        cities.append(start_city)
-        print('City of ',start_city,'is added to the database')
-        print(cities)
+    start_city = input('Enter the driver starting city: ')
+    if start_city in cities:
+        new_driver=Driver(name,start_city)
+        drivers_list.append(new_driver)
+        print('driver added successfully to the database')
+        view_all_drivers()
         break
-      elif answer=='n':
-        print('enter an existing city')
-      else:
-        print('enter a valid answer') 
     else:
-      break     
-  driver = Driver(name.lower(), start_city.lower())
-  drivers_list.append(driver)
+        answer=input('The city is not available in the database,would you like to add it?(y/n) ')
+        if answer=='y':
+            cities.append(start_city)
+            print('City of ',start_city,'is added to the database')
+            print(cities)
+            print('driver added successfully to the database')
+            new_driver=Driver(name,start_city)
+            drivers_list.append(new_driver)
+            view_all_drivers()
+            break
+        elif answer=='n':
+            print('enter an existing city')
+        else:
+            print('enter a valid answer') 
+  drivers_menu()
 
 def view_all_drivers():
   for i in range(len(drivers_list)):
     
     driver = drivers_list[i]
     print(driver.worker_id + ',' , driver.name.title() + ',' , driver.start_city.capitalize())
+  drivers_menu()
 
 def drivers_menu():
    print('1. To view all the drivers')
