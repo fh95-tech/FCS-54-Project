@@ -48,8 +48,8 @@ def drivers_menu():
       view_all_drivers()
    elif user_input=='2':
       add_driver()
-  #  elif user_input=='3':
-  #     sys_execution()
+   elif user_input=='3':
+      sys_execution()
    else:
       print('invalid input')
       drivers_menu()
